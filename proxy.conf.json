@@ -1,0 +1,11 @@
+{
+  "/servilo": {
+    "target": "https://najdira-vortaro.vapor.cloud",
+    "secure": true,
+    "pathRewrite": {
+      "^/servilo": ""
+    },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
