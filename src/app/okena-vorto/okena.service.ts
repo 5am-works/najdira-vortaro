@@ -68,12 +68,17 @@ export class OkenaService {
       ctx.stroke();
     }],
     ["r", (ctx, turni, longeco) => {
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(-ctx.lineWidth / 2, -ctx.lineWidth / 2, longeco + ctx.lineWidth, longeco + ctx.lineWidth);
+      ctx.clip();
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
       ctx.lineTo(0, 0);
       ctx.lineTo(longeco, longeco);
       ctx.lineTo(longeco, 0);
       ctx.stroke();
+      ctx.restore();
     }],
     ["k", (ctx, turni, longeco) => {
       ctx.beginPath();
