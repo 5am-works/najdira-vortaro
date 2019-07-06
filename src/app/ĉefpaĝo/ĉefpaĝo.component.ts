@@ -21,6 +21,6 @@ export class ĈefpaĝoComponent implements OnInit {
   }
 
   normaligi(vorto: string) {
-    return vorto.replace("A", "ai").replace("E", "ei").replace("O", "ou");
+    return this.vortaro.normaligi(vorto);
   }
 }

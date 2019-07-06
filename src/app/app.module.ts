@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
+  MatCardModule,
+  MatDividerModule,
+  MatIconModule,
+  MatInputModule,
   MatToolbarModule,
   MatFormFieldModule,
   MatTableModule
@@ -26,6 +30,10 @@ import { OkenaVortoComponent } from './okena-vorto/okena-vorto.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatDividerModule,
+    MatIconModule,
+    MatInputModule,
     MatFormFieldModule,
     MatToolbarModule,
     MatTableModule,

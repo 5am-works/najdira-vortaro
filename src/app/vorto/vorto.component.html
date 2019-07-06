@@ -1,2 +1,6 @@
-<p>La vorto estas {{ vorto }}</p>
-<app-okena-vorto [vorto]="vorto"></app-okena-vorto>
+<mat-card class="app-vorto">
+  <span class="najdira-vorto">{{ vortaro.normaligi(vorto) }}</span>
+  <app-okena-vorto [vorto]="vorto"></app-okena-vorto>
+  <mat-divider></mat-divider>
+  <p>Priskribo</p>
+</mat-card>

@@ -19,6 +19,10 @@ export class VortaroService {
   listiVortojnKunSignifoj() {
     return this.http.get<Array<VortoKunSignifo>>(VortaroService.indeksoURL);
   }
+
+  normaligi(vorto: string) {
+    return vorto.replace("A", "ai").replace("E", "ei").replace("O", "ou").replace("_", "");
+  }
 }
 
 export interface Vorto {

@@ -18,19 +18,21 @@ export class OkenaVortoComponent implements OnInit, AfterViewInit {
   @Input() vorto: string;
   @ViewChild('kanvaso', {static: true}) kanvaso: ElementRef<HTMLCanvasElement>;
 
+  private static spaco = 10;
+  private static longeco = 40;
+
   constructor(private okena: OkenaService) { }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
-    this.kanvaso.nativeElement.height = 200;
-    this.kanvaso.nativeElement.width = 500;
+    this.kanvaso.nativeElement.height = OkenaVortoComponent.spaco * 2 + OkenaVortoComponent.longeco + 7;
     const ctx = this.kanvaso.nativeElement.getContext('2d');
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 6;
     ctx.lineCap = 'square';
     ctx.lineJoin = 'miter';
-    this.okena.desegni(this.vorto, ctx, 50, 15);
+    this.okena.desegni(this.vorto, ctx, OkenaVortoComponent.longeco, OkenaVortoComponent.spaco);
   }
 
 }
