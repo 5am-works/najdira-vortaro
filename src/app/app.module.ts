@@ -5,12 +5,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
   MatCardModule,
   MatDividerModule,
+  MatGridListModule,
   MatIconModule,
   MatInputModule,
+  MatListModule,
   MatToolbarModule,
   MatFormFieldModule,
   MatTableModule
 } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,10 +33,13 @@ import { OkenaVortoComponent } from './okena-vorto/okena-vorto.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     MatCardModule,
     MatDividerModule,
+    MatGridListModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatFormFieldModule,
     MatToolbarModule,
     MatTableModule,

@@ -5,11 +5,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class VortaroService {
-  private static vortojURL = "/servilo/vortoj";
-  private static indeksoURL = "/servilo/indekso";
 
   constructor(private http: HttpClient) {
 
+  }
+  private static vortojURL = '/servilo/vortoj';
+  private static indeksoURL = '/servilo/indekso';
+
+  normaligi(vorto: string) {
+    return vorto.replace('A', 'ai').replace('E', 'ei').replace('O', 'ou').replace('_', '');
+  }
+
+  normaligiListon(vortoj: string[]) {
+    return vortoj.map(v => this.normaligi(v));
   }
 
   listiVortojn() {
@@ -20,8 +28,8 @@ export class VortaroService {
     return this.http.get<Array<VortoKunSignifo>>(VortaroService.indeksoURL);
   }
 
-  normaligi(vorto: string) {
-    return vorto.replace("A", "ai").replace("E", "ei").replace("O", "ou").replace("_", "");
+  vortoInformo(vorto: string) {
+    return this.http.get<VortoInformo>(`/servilo/informi/${vorto}`);
   }
 }
 
@@ -41,4 +49,13 @@ export interface VortoKunSignifo {
   signifo: string;
   ecoj: number;
   vorto: string;
+}
+
+export interface VortoInformo {
+  vorto: string;
+  ecoj: number;
+  signifo: string;
+  egalvortoj: string[];
+  radikoj: string[];
+  idoj: string[];
 }

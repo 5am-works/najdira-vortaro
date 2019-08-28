@@ -1,6 +1,31 @@
 <mat-card class="app-vorto">
-  <span class="najdira-vorto">{{ vortaro.normaligi(vorto) }}</span>
-  <app-okena-vorto [vorto]="vorto"></app-okena-vorto>
-  <mat-divider></mat-divider>
-  <p>Priskribo</p>
+  <section *ngIf="informo | async as vorto; else nepreta">
+    <span>
+      <span class="najdira-vorto">{{ vortaro.normaligi(vorto.vorto) }}</span>
+      <app-okena-vorto [vorto]="vorto.vorto"></app-okena-vorto>
+    </span>
+    <p class="mat-body">Signifo: {{ vorto.signifo }}</p>
+    <p class="mat-body" *ngIf="vorto.egalvortoj.length > 0">
+      Egalvortoj: <span *ngFor="let v of vorto.egalvortoj; let lasta=last">
+        <a [routerLink]="['/', v]">{{ vortaro.normaligi(v) }}</a>{{lasta ? '' : ', '}}
+      </span>
+    </p>
+    <p class="mat-body" *ngIf="vorto.idoj.length > 0">
+      Idoj: <span *ngFor="let v of vorto.idoj; let lasta=last">
+        <a [routerLink]="['/', v]">{{ vortaro.normaligi(v) }}</a>{{lasta ? '' : ', '}}
+      </span>
+    </p>
+    <p class="mat-body" *ngIf="vorto.radikoj.length > 0">
+      Radikoj: <span *ngFor="let v of vorto.radikoj; let lasta=last">
+        <a [routerLink]="['/', v]">{{ vortaro.normaligi(v) }}</a>{{lasta ? '' : ', '}}
+      </span>
+    </p>
+  </section>
+
+  <ng-template #nepreta>
+    <span *ngIf="eraro">
+      Eraro okazis
+    </span>
+    <span *ngIf="!eraro">Ŝarĝanta</span>
+  </ng-template>
 </mat-card>

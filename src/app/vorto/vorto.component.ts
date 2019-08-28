@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 
-import { VortaroService } from '../vortaro.service';
+import { VortaroService, VortoInformo } from '../vortaro.service';
 
 @Component({
   selector: 'app-vorto',
@@ -10,9 +11,20 @@ import { VortaroService } from '../vortaro.service';
 })
 export class VortoComponent implements OnInit {
   private vorto: string;
+  private eraro = false;
+  private informo = new Subject<VortoInformo>();
 
   constructor(private vojo: ActivatedRoute, private vortaro: VortaroService) {
-    this.vorto = vojo.snapshot.paramMap.get("vorto");
+    vojo.paramMap.subscribe((params) => {
+      this.vorto = params.get('vorto');
+      this.informo.next(null);
+      this.vortaro.vortoInformo(this.vorto).subscribe((vorto) => {
+        this.informo.next(vorto);
+      }, (eraro) => {
+        this.eraro = true;
+        console.error(eraro);
+      });
+    });
   }
 
   ngOnInit() {
