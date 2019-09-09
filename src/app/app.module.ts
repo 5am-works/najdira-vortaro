@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { 
+import {
   MatCardModule,
   MatDividerModule,
   MatGridListModule,
@@ -11,7 +11,7 @@ import {
   MatListModule,
   MatToolbarModule,
   MatFormFieldModule,
-  MatTableModule
+  MatTableModule, MatAutocompleteModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -20,6 +20,7 @@ import { AppComponent } from './app.component';
 import { ĈefpaĝoComponent } from './ĉefpaĝo/ĉefpaĝo.component';
 import { VortoComponent } from './vorto/vorto.component';
 import { OkenaVortoComponent } from './okena-vorto/okena-vorto.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,9 @@ import { OkenaVortoComponent } from './okena-vorto/okena-vorto.component';
     MatFormFieldModule,
     MatToolbarModule,
     MatTableModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

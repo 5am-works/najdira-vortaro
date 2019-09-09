@@ -4,15 +4,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class OkenaService {
+
+  constructor() { }
   private static desegniloj: Map<string, (ctx: CanvasRenderingContext2D, turni: boolean, longeco: number) => void> = new Map([
-    ["_", (ctx, turni, longeco) => {
+    ['_', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
       ctx.lineTo(0, 0);
       ctx.lineTo(longeco, 0);
       ctx.stroke();
     }],
-    ["m", (ctx, turni, longeco) => {
+    ['m', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.3);
       ctx.lineTo(0, longeco * 0.7);
@@ -20,9 +22,9 @@ export class OkenaService {
       ctx.lineTo(longeco, 0);
       ctx.stroke();
     }],
-    ["b", (ctx, turni, longeco) => {
+    ['b', (ctx, turni, longeco) => {
       ctx.beginPath();
-      ctx.moveTo(0, longeco * 0.6);
+      ctx.moveTo(0, longeco * 0.4);
       ctx.lineTo(0, longeco);
       ctx.lineTo(longeco, longeco);
       ctx.lineTo(longeco, 0);
@@ -30,7 +32,7 @@ export class OkenaService {
       ctx.lineTo(longeco * 0.75, longeco);
       ctx.stroke();
     }],
-    ["p", (ctx, turni, longeco) => {
+    ['p', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
       ctx.lineTo(0, longeco);
@@ -38,7 +40,7 @@ export class OkenaService {
       ctx.lineTo(longeco, 0);
       ctx.stroke();
     }],
-    ["v", (ctx, turni, longeco) => {
+    ['v', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(longeco, 0);
@@ -51,7 +53,7 @@ export class OkenaService {
       ctx.lineTo(longeco * 0.75, longeco * 0.3);
       ctx.stroke();
     }],
-    ["f", (ctx, turni, longeco) => {
+    ['f', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(longeco, 0);
@@ -62,15 +64,15 @@ export class OkenaService {
       ctx.lineTo(longeco * 0.85, longeco * 0.3);
       ctx.stroke();
     }],
-    ["n", (ctx, turni, longeco) => {
+    ['n', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
       ctx.lineTo(0, longeco * 0.3);
       ctx.ellipse(longeco * 0.5, longeco * 0.3, longeco / 2, longeco * 0.3 + 3, 0, Math.PI, 0);
-      ctx.lineTo(longeco, longeco)
+      ctx.lineTo(longeco, longeco);
       ctx.stroke();
     }],
-    ["d", (ctx, turni, longeco) => {
+    ['d', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
       ctx.lineTo(0, 0);
@@ -80,7 +82,7 @@ export class OkenaService {
       ctx.lineTo(longeco * 0.75, longeco);
       ctx.stroke();
     }],
-    ["t", (ctx, turni, longeco) => {
+    ['t', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
       ctx.lineTo(0, 0);
@@ -88,7 +90,7 @@ export class OkenaService {
       ctx.lineTo(longeco, longeco);
       ctx.stroke();
     }],
-    ["z", (ctx, turni, longeco) => {
+    ['z', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(longeco, 0);
@@ -100,7 +102,7 @@ export class OkenaService {
       ctx.lineTo(longeco * 0.75, longeco);
       ctx.stroke();
     }],
-    ["s", (ctx, turni, longeco) => {
+    ['s', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(longeco, 0);
@@ -110,7 +112,7 @@ export class OkenaService {
       ctx.lineTo(longeco, longeco);
       ctx.stroke();
     }],
-    ["l", (ctx, turni, longeco) => {
+    ['l', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(0, longeco);
@@ -120,7 +122,7 @@ export class OkenaService {
       ctx.lineTo(longeco * 0.3, longeco * 0.4);
       ctx.stroke();
     }],
-    ["r", (ctx, turni, longeco) => {
+    ['r', (ctx, turni, longeco) => {
       ctx.save();
       ctx.beginPath();
       ctx.rect(-ctx.lineWidth / 2, -ctx.lineWidth / 2, longeco + ctx.lineWidth, longeco + ctx.lineWidth);
@@ -133,7 +135,7 @@ export class OkenaService {
       ctx.stroke();
       ctx.restore();
     }],
-    ["ʃ", (ctx, turni, longeco) => {
+    ['ʃ', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(longeco, 0);
@@ -144,7 +146,7 @@ export class OkenaService {
       ctx.lineTo(longeco * 0.85, longeco);
       ctx.stroke();
     }],
-    ["j", (ctx, turni, longeco) => {
+    ['j', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco);
       ctx.lineTo(longeco / 2, 0);
@@ -153,10 +155,10 @@ export class OkenaService {
       ctx.lineTo(longeco / 2, longeco * 0.6);
       ctx.stroke();
     }],
-    ["g", (ctx, turni, longeco) => {
+    ['g', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
-      ctx.lineTo(0, 0)
+      ctx.lineTo(0, 0);
       ctx.lineTo(longeco, 0);
       ctx.lineTo(longeco * 0.85, longeco / 2);
       ctx.lineTo(longeco, longeco);
@@ -165,16 +167,16 @@ export class OkenaService {
       ctx.lineTo(longeco * 0.7, longeco);
       ctx.stroke();
     }],
-    ["k", (ctx, turni, longeco) => {
+    ['k', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
-      ctx.lineTo(0, 0)
+      ctx.lineTo(0, 0);
       ctx.lineTo(longeco, 0);
       ctx.lineTo(longeco * 0.7, longeco / 2);
       ctx.lineTo(longeco, longeco);
       ctx.stroke();
     }],
-    ["w", (ctx, turni, longeco) => {
+    ['w', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(0, longeco * 0.6);
@@ -184,7 +186,7 @@ export class OkenaService {
       ctx.stroke();
     }],
     // Vokaloj
-    ["a", (ctx, turni, longeco) => {
+    ['a', (ctx, turni, longeco) => {
       ctx.save();
       ctx.strokeStyle = 'white';
       ctx.lineWidth += 2;
@@ -199,13 +201,13 @@ export class OkenaService {
       ctx.ellipse(longeco * 0.2, longeco * 0.8 + 1, longeco * 0.2, longeco * 0.2, 0, Math.PI, 2 * Math.PI - 1.7, true);
       ctx.stroke();
     }],
-    ["e", (ctx, turni, longeco) => {
+    ['e', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
       ctx.ellipse(longeco * 0.2, longeco * 0.8 + 1, longeco * 0.2, longeco * 0.2, 0, Math.PI, 2 * Math.PI, true);
       ctx.stroke();
     }],
-    ["i", (ctx, turni, longeco) => {
+    ['i', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
       ctx.ellipse(longeco * 0.2, longeco * 0.8 + 1, longeco * 0.2, longeco * 0.2, 0, Math.PI, 2 * Math.PI, true);
@@ -224,7 +226,7 @@ export class OkenaService {
       ctx.lineTo(longeco * 0.4, longeco + 2);
       ctx.stroke();
     }],
-    ["A", (ctx, turni, longeco) => {
+    ['A', (ctx, turni, longeco) => {
       ctx.save();
       ctx.strokeStyle = 'white';
       ctx.lineWidth += 2;
@@ -253,7 +255,7 @@ export class OkenaService {
       ctx.lineTo(longeco * 0.4, longeco + 2);
       ctx.stroke();
     }],
-    ["E", (ctx, turni, longeco) => {
+    ['E', (ctx, turni, longeco) => {
       ctx.beginPath();
       ctx.moveTo(0, longeco * 0.6);
       ctx.ellipse(longeco * 0.2 - 3, longeco * 0.8 + 1, longeco * 0.2 - 3, longeco * 0.2, 0, Math.PI, 2 * Math.PI, true);
@@ -278,16 +280,16 @@ export class OkenaService {
     }],
   ]);
   private static vokaloMoviloj: Map<string, (ctx: CanvasRenderingContext2D, longeco: number) => void> = new Map([
-    ["m", OkenaService.mbpMovi],
-    ["b", OkenaService.mbpMovi],
-    ["p", OkenaService.mbpMovi],
-    ["v", OkenaService.vfMovi],
-    ["f", OkenaService.vfMovi],
-    ["l", (ctx, longeco) => {
+    ['m', OkenaService.mbpMovi],
+    ['b', OkenaService.mbpMovi],
+    ['p', OkenaService.mbpMovi],
+    ['v', OkenaService.vfMovi],
+    ['f', OkenaService.vfMovi],
+    ['l', (ctx, longeco) => {
       ctx.transform(1, 0, 0, -1, 0, longeco);
       ctx.transform(1, 0, 0, 1, longeco * 0.3, 0);
     }],
-    ["j", (ctx, longeco) => {
+    ['j', (ctx, longeco) => {
       ctx.transform(1, 0, 0, 1, longeco * 0.5, 0);
     }],
   ]);
@@ -298,7 +300,14 @@ export class OkenaService {
     ['O', 'E'],
   ]);
 
-  constructor() { }
+  private static mbpMovi(ctx: CanvasRenderingContext2D, longeco: number) {
+    ctx.transform(1, 0, 0, -1, 0, longeco);
+  }
+
+  private static vfMovi(ctx: CanvasRenderingContext2D, longeco: number) {
+    ctx.transform(1, 0, 0, -1, 0, longeco);
+    ctx.transform(1, 0, 0, 1, 0, -longeco * 0.3);
+  }
 
   desegni(vorto: string, ctx: CanvasRenderingContext2D, longeco: number, spaco: number) {
     if (vorto.length % 2 !== 0) {
@@ -329,14 +338,5 @@ export class OkenaService {
         ctx.transform(1, 0, 0, 1, longeco + spaco, 0);
       }
     });
-  }
-
-  private static mbpMovi(ctx: CanvasRenderingContext2D, longeco: number) {
-    ctx.transform(1, 0, 0, -1, 0, longeco);
-  }
-
-  private static vfMovi(ctx: CanvasRenderingContext2D, longeco: number) {
-    ctx.transform(1, 0, 0, -1, 0, longeco);
-    ctx.transform(1, 0, 0, 1, 0, -longeco * 0.3);
   }
 }

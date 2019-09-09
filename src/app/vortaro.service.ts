@@ -12,6 +12,14 @@ export class VortaroService {
   private static vortojURL = '/servilo/vortoj';
   private static indeksoURL = '/servilo/indekso';
 
+  private static troviURL(eniro: string) {
+    return `/servilo/trovi/${eniro}`;
+  }
+
+  trovi(eniro: string) {
+    return this.http.get<SerĉRezulto>(VortaroService.troviURL(eniro));
+  }
+
   normaligi(vorto: string) {
     return vorto.replace('A', 'ai').replace('E', 'ei').replace('O', 'ou').replace('_', '');
   }
@@ -58,4 +66,15 @@ export interface VortoInformo {
   egalvortoj: string[];
   radikoj: string[];
   idoj: string[];
+}
+
+export interface SerĉRezulto {
+  signifoj: {
+    id: number;
+    signifo: string;
+  }[];
+  vortoj: {
+    id: number;
+    vorto: string;
+  }[];
 }

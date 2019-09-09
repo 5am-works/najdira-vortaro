@@ -1,11 +1,19 @@
 <mat-toolbar color="primary">
   <span>Najdira vortaro</span>
-<!--   <mat-card class="serĉi">
+  <span class="spaco"></span>
+  <form class="serĉo" [formGroup]="respondilo">
     <mat-form-field floatLabel="never">
-      <input type="text" matInput placeholder="Serĉi">
-      <mat-icon matSuffix>search</mat-icon>
+      <input type="text" matInput placeholder="Serĉi" [matAutocomplete]="autoGroup"
+        formControlName="rezultoGrupo">
+      <mat-autocomplete #autoGroup="matAutocomplete">
+        <mat-optgroup *ngFor="let grupo of rezultoj | async" [label]="grupo.tipo">
+          <mat-option *ngFor="let name of grupo.rezultoj" [value]="name">
+            {{ name }}
+          </mat-option>
+        </mat-optgroup>
+      </mat-autocomplete>
     </mat-form-field>
-  </mat-card> -->
+  </form>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
